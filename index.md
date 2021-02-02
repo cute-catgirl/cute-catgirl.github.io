@@ -1,7 +1,6 @@
-## Hello!
+Hello!
+My name is Ben, and I like to code!
 
-## My name is Ben, and I like to code!
-
-## Here are some of my projects:
+## Projects:
 
 [Catbox](boxit379.github.io/catbox)
