@@ -1,5 +1,7 @@
-layout: page
-title: "Ben Moon"
+Hello!
 
+My name is Ben, and I like to code!
 
-Hello there!
+Here are some of my projects:
+
+[Catbox](boxit379.github.io/catbox)
