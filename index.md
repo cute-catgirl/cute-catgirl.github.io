@@ -1,3 +1,5 @@
 layout: page
 title: "Ben Moon"
-permalink: "/home"
+
+
+Hello there!
