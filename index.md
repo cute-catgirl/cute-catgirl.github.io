@@ -4,4 +4,4 @@ My name is Ben, and I like to code!
 ## Projects:
 
 [Catbox](catbox) - Open a box, get a cat.
-[Idle();] (clicker) - An extremely WIP clicker game I'm making
+[Idle();](clicker) - An extremely WIP clicker game I'm making
