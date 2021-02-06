@@ -1,5 +1,6 @@
 Hello!
-My name is Ben, and I like to code!
+My name is Ben, and I'm a 14 year old coder!
+Here you can see my projects!
 
 ## Projects:
 
