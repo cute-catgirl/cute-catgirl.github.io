@@ -3,7 +3,12 @@ body {
 }
 
 h1, h2, p {
-  font-family: Open sans, arial, sans-serif;
+  font-family: "Open sans", arial, sans-serif;
+}
+
+a {
+  font-family: "Open sans", arial, sans-serif;
+  color: black;
 }
 
 .title {
