@@ -5,6 +5,7 @@ body {
 
 h1, h2, p {
   font-family: "Open sans", arial, sans-serif;
+  margin: 1em;
 }
 
 a {
@@ -22,8 +23,7 @@ a {
   flex-direction: column;
   background-color: #3092E3;
   padding-top: 0px;
-  margin-bottom: 3em;
-  margin: 0px;
+  margin-bottom: 1em;
 }
 
 .projects {
@@ -39,7 +39,6 @@ a {
 .about {
   color: black;
   display: flex;
-
   justify-content: space-around;
   flex-direction: column;
   align-items: baseline;
