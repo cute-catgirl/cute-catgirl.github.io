@@ -1,10 +1,11 @@
-const version = "0.1.0";
+const version = "0.1.2";
 
 const domain = window.location.hostname;
 const output = document.getElementById("output");
 const input = document.getElementById("input");
+const previousCommands = [];
 const allowedChars = /^[0-9a-zA-Z !@#$%^&*()_+-=,.<>?;:'"\/\\|[\]{}~]$/;
-const themes = ["dark", "light", "black"];
+const themes = ["dark", "light", "black", "hacker", "none"];
 
 const commands = {
     "help": (args) => {
@@ -12,9 +13,9 @@ const commands = {
         outputContents.push("help - display this help message");
         outputContents.push("clear - clear the terminal");
         outputContents.push("info - display information about me");
-        outputContents.push("projects - display my projects");
         outputContents.push("contact - display my contact information");
         outputContents.push("theme [theme] - change the terminal theme (use without arguments to list themes)");
+        outputContents.push("There's also some more hidden commands you can find if you look around :3")
     },
     "clear": (args) => {
         outputContents = [`${domain} v${version}`, "Type 'help' for a list of commands"];
@@ -22,12 +23,9 @@ const commands = {
     "info": (args) => {
         outputContents.push("-- INFO --");
         outputContents.push("Age ~ 16");
+        outputContents.push("Gender ~ Transfem");
         outputContents.push("Pronouns ~ She/Her");
         outputContents.push("Location ~ Canada");
-    },
-    "projects": (args) => {
-        outputContents.push("-- PROJECTS --");
-        outputContents.push("Website ~ Amazingly, you are already there.");
     },
     "contact": (args) => {
         outputContents.push("-- CONTACT --");
@@ -58,11 +56,25 @@ const commands = {
         } else {
             outputContents.push(`${theme}: theme not found`);
         }
+    },
+    "uwu": (args) => {
+        messages = ["nyaa~ :3", "^w^", "nyaaa~", ":3", "OwO", "UwU"];
+        outputContents.push(messages[Math.floor(Math.random() * messages.length)]);
+    },
+    "gay": (args) => {
+        // Make all the text rainbow
+        if (output.classList.contains("rainbow-text")) {
+            output.classList = "";
+        }
+        else {
+            output.classList = "rainbow-text";
+        }
     }
 }
 
 let outputContents = [`${domain} v${version}`, "Type 'help' for a list of commands"];
 let inputContents = "";
+let previousCommandIndex = 0;
 
 function updateTerminal() {
     input.innerHTML = `[user@${domain}]$ ${inputContents}`;
@@ -117,7 +129,28 @@ window.addEventListener("keydown", (event) => {
     if (event.key === "Backspace") {
         inputContents = inputContents.slice(0, -1);
     } else if (event.key === "Enter") {
+        outputContents.push(`[user@${domain}]$ ${inputContents}`);
+        previousCommands.unshift(inputContents);
+        previousCommandIndex = 0;
         runCommand(inputContents);
+    } else if (event.key === "ArrowDown") {
+        if (previousCommands.length > 0) {
+            previousCommands.unshift("");
+            if (previousCommandIndex > 0) {
+                previousCommandIndex--;
+            }
+            inputContents = previousCommands[previousCommandIndex];
+            previousCommands.shift();
+        }
+    } else if (event.key === "ArrowUp") {
+        if (previousCommands.length > 0) {
+            previousCommands.unshift("");
+            if (previousCommandIndex < previousCommands.length - 1) {
+                previousCommandIndex++;
+            }
+            inputContents = previousCommands[previousCommandIndex];
+            previousCommands.shift();
+        }
     } else {
         if (allowedChars.test(event.key)) {
             inputContents += event.key;
