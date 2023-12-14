@@ -30,7 +30,7 @@ const commands = {
     "contact": (args) => {
         outputContents.push("-- CONTACT --");
         outputContents.push("Email ~ benmoon372@gmail.com");
-        outputContents.push("Github ~ boxit379");
+        outputContents.push("Github ~ cute-catgirl");
         outputContents.push("Discord ~ cute_catgirl");
         outputContents.push("Mastodon ~ @catgirl@tech.lgbt");
     },
